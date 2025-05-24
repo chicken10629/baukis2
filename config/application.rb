@@ -18,6 +18,17 @@ module Baukis2
     config.time_zone ="Tokyo"
     config.i18n.load.load_path += Dir[Rails.root.join("config","locales","**","*.{rb,yml}").to_s]
     config.i18n.default_locale = :ja
+    
+    config.generators do |g|
+      g.skip_routes true
+      g.helper false
+      # assetsはcss/jsファイルの事。
+      g.assets false
+      g.test_framework :rspec
+      # rspecが有効な状態でrails g controllerなどすると、テスト用ファイルも作られてしまうので無効に
+      g.controller_specs false
+      g.view_specs false
+    end
 
     # Configuration for the application, engines, and railties goes here.
     #
