@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Baukis2</title>
+    <title>
+      <!-- document_titleはオリジナルヘルパー。 -->
+      <%= document_title %>
+    </title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <!-- CSSとjavascriptの読み込み -->
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+  <!-- yieldにアクションで指定されたERBテンプレが挿入、レイアウト込みのHTML全体をブラウザへ返す -->
+  <!-- レイアウトファイルは条件を設定して切替可能 applicationコンにて、namespace毎に切り替えた記憶 -->
+    <div id="wrapper">
+      <%= render "shared/header" %>
+      <div id= "container">
+        <%= yield %>
+      </div>
+      <%= render "shared/footer" %>
+    </div>
   </body>
 </html>
