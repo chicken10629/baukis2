@@ -9,7 +9,13 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
- *
+ * Sassはサーバー側でcssに変換してからブラウザに送られる（コンパイル）
+ * sassはインデントで構造を表現するのに対し、scssは{}で構造を表現。
+ * assetsファイル以下に置かれたimages,javascripts,stylesheetsの３つのディレクトリに置かれたファイルをアセットという。
+ * require_treeとrequire_selfはディレクティブと呼ばれ、アセットパイプラインの設定をする。
+ * アセットパイプラインとはJavascriptやcss、つまりアセットを圧縮したり最小化したものを連結させる。他の言語で記述したアセットを作成する機能を追加することもできる
+ * require_treeはアセットパイプラインが処理をするファイルの範囲を設定。指定したディレクトリ以下の全ファイルを処理
+ * require_selfは自分自身、つまりapplication.cssに記述されているスタイルもアセットパイプラインの処理対象とする。今回はcssは使わないので削除
  *= require_tree .
  *= require_self
  */
